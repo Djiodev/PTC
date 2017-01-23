@@ -9,6 +9,7 @@ namespace PTCData
         public string Body { get; set; }
         public DateTime Created { get; set; }
         public string Username { get; set; }
+
         [Required]
         public int TripID { get; set; }
     }

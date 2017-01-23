@@ -6,37 +6,15 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/app-cycling.js"></script>
     <script src="~/Scripts/Controllers/cyclingController.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGCSe6WUi43k-PXlNMuzJGa_cwZ12y1_Q"></script>
+
 }
 
 
 <div ng-app="app-cycling">
     <div ng-controller="cyclingController as vm">
-        <!--BEGIN HIDDEN FIELDS AREA-->
-        <!-- END HIDDEN FIELDS AREA -->
-        <!-- BEGIN SEARCH AREA -->
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h1 class="panel-title">Search For Trips</h1>
-            </div>
-            <form novalidate name="searchForTrips">
-                <div class="panel-body">
 
-                    <div class="form-group">
-                        <label for="name">Trip Name</label>
-                        <input class="form-control" type="text" id="name" name="name" ng-model="vm.tripName" />
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <div class="form-group">
-                        <button id="btnSearch" class="btn btn-sm btn-primary" ng-click="vm.searchTrip()">Search</button>
-                        <button id="btnReset" class="btn btn-sm btn-primary">Reset</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-        <!-- END SEARCH AREA -->
-        <!-- BEGIN LIST AREA -->
         <div class="row">
             <div class="table-responsive">
 
@@ -48,7 +26,7 @@
                             <th>Date</th>
                         </tr>
                     </thead>
-                    
+
                     <tr ng-repeat="trip in vm.trips">
                         <td><a ng-click="vm.showStops(trip)">{{ trip.username }}</a></td>
                         <td><a ng-click="vm.showStops(trip)">{{ trip.name }}</a></td>
@@ -82,7 +60,27 @@
             <button class="btn btn-primary" ng-click="vm.stats()">Trips Stats</button>
         </div>
 
-        <!-- END LIST AREA-->
+        <div class="voffset-40"></div>
+
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{ vm.title }}</div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div id="distancesChartContainer" class="col-md-6">
+                            <canvas id="distancesChart"></canvas>
+                        </div>
+                        <div id="elevationChartContainer" class="col-md-6">
+                            <canvas id="elevationChart"></canvas>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>

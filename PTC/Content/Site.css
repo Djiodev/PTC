@@ -26,3 +26,16 @@ textarea {
 table a {
     cursor: pointer;
 }
+
+#tripsChart {
+    width: 100%;
+    height: 300px;
+}
+
+.voffset-80 {
+    margin-top: 80px;
+}
+
+.voffset-40 {
+    margin-top: 40px;
+}
